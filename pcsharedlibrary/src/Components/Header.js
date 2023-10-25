@@ -11,7 +11,7 @@ function Header({ switchTo }) {
 
 
   return (
-    <Box sx={{ flexGrow: 1 }}>sfgdsfgdf
+    <Box sx={{ flexGrow: 1 }}>
       <AppBar sx={{ height: '50px' }} position="fixed" variant="permanent">
         <Toolbar>
           <div sx={{ display: 'flex', alignItems: 'center' }}>
