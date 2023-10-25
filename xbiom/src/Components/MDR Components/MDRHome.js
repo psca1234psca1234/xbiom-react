@@ -9,7 +9,7 @@ import {
 } from "../../resources/css/MainStyle";
 import MyWorkSpace from "../MyWorkSpace";
 import CloseableTabs from "react-closeable-tabs";
-import generateTabDataForSubItem from "../../Controller/MDRtabController";
+import mdrGenerateTabDataForSubItem from "../../Controller/MDRtabController";
 import { ConMDRJsonToSidebarData } from "../../Controller/ConJsonToSidebarData";
 
 const MDRHome = () => {
@@ -30,7 +30,7 @@ const [root,setRootName] = useState("");
 
   const customNav = (sideBarName) => {
     const rootName = sideBarName.replace(/\s/g, "").toLowerCase();
-    const newTabsData = generateTabDataForSubItem(rootName);
+    const newTabsData = mdrGenerateTabDataForSubItem(rootName);
     const tabIds = tabsData.map((existingTab) => existingTab.id);
     newTabsData.forEach((newTab) => {
       if (!tabIds.includes(newTab.id)) {

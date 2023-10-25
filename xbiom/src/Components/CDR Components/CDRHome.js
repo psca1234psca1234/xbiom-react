@@ -6,6 +6,10 @@ import { ConCDRJsonToSidebarData } from "../../Controller/ConJsonToSidebarData";
 import { cdrFilePath } from "../../resources/data/filePath";
 import { useNavigate,useLocation} from "react-router-dom";
 import CloseableTabs from 'react-closeable-tabs'
+import All from "./All";
+import cdrGenerateTabDataForSubItem from "../../Controller/CDRtabController";
+
+
 function CDRHome() {
   const [mdrHomeContext, setMdrHomeContext] = useContext(PcContext);
   const [currentRoot, setRoot] = useState("/cdr");
@@ -14,9 +18,9 @@ function CDRHome() {
   const [tabsData, setTabsData] = useState([
     {
       tab: "All",
-      component: <h2>sdfhgh</h2>,
+      component: <All />,
       id: 0,
-      tabIndex :0
+      tabIndex: 0,
     },
   ]);
 
@@ -26,11 +30,14 @@ function CDRHome() {
 
   const customNav = (sideBarName) => {
     const rootName = sideBarName.replace(/\s/g, "").toLowerCase();
+    
+    const newTabsData = cdrGenerateTabDataForSubItem(rootName);
 
     navigate(`${cdrFilePath.cdrBaseUrl}${rootName}`);
-    debugger;
+    ;
     console.log(location.pathname); // Here, location is not defined
     setRoot(`${cdrFilePath.cdrBaseUrl}${rootName}`)
+    setTabsData(newTabsData);
   };
 
   return (
@@ -45,21 +52,7 @@ function CDRHome() {
           // onCloseTab ={handleTabClose} 
         />
       </ContainerFRow>
-        {(currentRoot === "/cdr" || currentRoot === "/cdr/all") && (
-          <Container margin="0 0 0 10px" bRadius="15px" bgc="white">
-            <h2>All Container</h2>
-          </Container>
-        )}
-        {(currentRoot === "/cdr/send") && (
-          <Container margin="0 0 0 10px" bRadius="15px" bgc="white">
-            <h2>Send Container</h2>
-          </Container>
-        )}
-        {(currentRoot === "/cdr/custom") && (
-          <Container margin="0 0 0 10px" bRadius="15px" bgc="white">
-            <h2>Custom container</h2>
-          </Container>
-        )}
+        
       
     </MainContainer>
   );

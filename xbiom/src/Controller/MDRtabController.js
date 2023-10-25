@@ -80,11 +80,11 @@ const tabDataConfig = {
         id: 9,
         tabIndex: null,
         closeable : true
-    }
+    },
     // Add other tab data objects as needed
   };
   
-  const generateTabDataForSubItem = (subItemName) => {
+  const mdrGenerateTabDataForSubItem = (subItemName) => {
     // Use the configuration object to generate tab data
     const tabConfig = tabDataConfig[subItemName];
     if (tabConfig) {
@@ -95,5 +95,5 @@ const tabDataConfig = {
     return [];
   };
   
-  export default generateTabDataForSubItem;
+  export default mdrGenerateTabDataForSubItem;
   
