@@ -1,5 +1,22 @@
 export const mdrFilePath = {
     mdrBaseUrl : '/mdr/',
+    terminologyUrl : 'terminology',
+    modelManagementUrl : 'standardmodelmanagement',
+    globalCTUrl : 'terminology/controlledterminology/global',
+    standardUrl : 'terminology/controlledterminology/standard-cdisc',
+    modelCTUrl : 'terminology/controlledterminology/modelct',
+    localCTUrl : 'terminology/controlledterminology/local',
+    ctUrl:'terminology/controlledterminology',
+    externalDictUrl : 'terminology/externaldictionaries',
+    systemCodelistUrl: 'terminology/systemcodelist',
+    dataDefinationUrl :'terminology/metadatadefination',
+    standardUnitUrl : 'terminology/standardunits',
+    UCFurl : 'terminology/unitconversionfactors',
+    aboutUrl:'about',
+    studylistingUrl : 'nonclinicalstudyworkflow/studylisting',
+    dataingestionUrl : 'nonclinicalstudyworkflow/dataingestion',
+    sdsUrl:'nonclinicalstudyworkflow/senddatastandardization',
+    studytrackerUrl : 'nonclinicalstudyworkflow/studytracker',
     workspaceUrl : 'myworkspace',
     showinvolvedUrl :'showinvolved',
     allstagesUrl : 'allstages',
@@ -9,7 +26,7 @@ export const mdrFilePath = {
     qcdashboardUrl: 'qcdashboard',
     loadstatusUrl: 'loadstatus',
     senddatastandardizationUrl :'senddatastandardization',
-    studytrackerUrl : 'studytracker'
+    
 } 
 
 export const cdrFilePath ={

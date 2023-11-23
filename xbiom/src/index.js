@@ -7,6 +7,5 @@ const root = createRoot(rootElement);
 root.render(
   <React.StrictMode>
     <App />
-    {/* <Apps/> */}
   </React.StrictMode>
 );

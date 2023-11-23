@@ -10,6 +10,6 @@ export const mdrContextData = {
    // sideBarWidth : '140px',
    sideBarCollapsed : false,
    sideBarWidth : 240,
-   sideBarCollapsedWidth : 80
+   sideBarCollapsedWidth : 50
 };
 

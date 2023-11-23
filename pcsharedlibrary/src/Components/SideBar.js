@@ -10,9 +10,49 @@ const menuItemStyle = {
   }
 }
 
+function renderSubMenuItems(subItems, onItemClick,parentMenuName, currentLevel = 0) {
+  const location = useLocation();
+  if (!subItems || subItems.length === 0) {
+    return null;
+  }
+
+  return subItems.map((subItem, i) => {
+    const isHidden = subItem.hidden;
+    if (isHidden) {
+      return null;
+    }
+
+    if (subItem.subItems && subItem.subItems.length > 0 && currentLevel < 3) {
+      const isActive = location.pathname === subItem.linkUrl;
+      return (
+        <SubMenu
+          key={subItem.text + i}
+          defaultOpen={false}
+          label={subItem.text}
+        >
+          {renderSubMenuItems(subItem.subItems, onItemClick,subItem.text, currentLevel + 1)}
+        </SubMenu>
+      );
+    } else {
+      const isActive = location.pathname === subItem.linkUrl;
+      return (
+        <MenuItem
+          key={subItem.text + i}
+          className={isActive ? 'active' : ''}
+          style={isActive ? { backgroundColor: '#c2cfc0' } : {}}
+          onClick={() => onItemClick(parentMenuName+'/'+subItem.text)}
+        >
+          {' '}
+          {subItem.text}{' '}
+        </MenuItem>
+      );
+    }
+  });
+}
+
 function SideBar({ items, onItemClick }) {
-  const [pcContext, setPcContext] = useContext(PcContext)
-  const location = useLocation()
+  const [pcContext, setPcContext] = useContext(PcContext);
+
   return (
     <Fragment>
       <Sidebar
@@ -22,38 +62,22 @@ function SideBar({ items, onItemClick }) {
       >
         <Menu closeOnClick={true}>
           {items.map((item, i) => {
-            if (!!item.subItems) {
+            const isHidden = item.hidden;
+            if (isHidden) {
+              return null;
+            }
+
+            if (item.subItems && item.subItems.length > 0) {
               return (
                 <SubMenu
                   key={item.text + i}
-                  defaultOpen={true}
+                  defaultOpen={false}
                   label={item.text}
                 >
-                  {item.subItems.filter((subitem) => subitem.disable =="false").map((subItem, i) => {
-                    const isActive = location.pathname === subItem.linkUrl;
-                    
-
-                    return (
-                      <MenuItem
-                        key={subItem.text + i}
-                        className={isActive ? 'active' : ''}
-                        style={isActive ? { backgroundColor: '#c2cfc0' } : {}}
-                        onClick={() => onItemClick(subItem.text)}
-                      >
-                        {' '}
-                        {subItem.text}{' '}
-                      </MenuItem>
-                    );
-                  })}
+                  {renderSubMenuItems(item.subItems, onItemClick,item.text)}
                 </SubMenu>
               );
             } else {
-              const isHidden = item.hidden; // Check if the item is hidden
-
-              if (isHidden) {
-                return null; // Don't render the item if it's hidden
-              }
-
               return (
                 <MenuItem
                   key={item.text + i}
@@ -71,4 +95,4 @@ function SideBar({ items, onItemClick }) {
   );
 }
 
-export default SideBar
+export default SideBar;

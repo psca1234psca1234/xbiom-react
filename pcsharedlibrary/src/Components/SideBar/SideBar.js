@@ -15,6 +15,7 @@ import { SideBarContainer } from './SIdeBarStyle'
 
 
 const  SideBar = ({ items, onItemClick }) => {
+  debugger
   const [itemStates, setItemStates] = useState({});
   const [pcContext, setPcContext] = useContext(PcContext);
   const [sideBarWidth, setSideBarWidth] = useState(pcContext.sideBarWidth);

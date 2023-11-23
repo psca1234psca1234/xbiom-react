@@ -1,7 +1,8 @@
 {
-  "name": "xbiom",
+  "name": "xbiom2",
   "version": "0.1.0",
   "homepage": "/mdr", 
+  "proxy": "https://regulatorydev.xbiom.com/",
   "dependencies": {
     "@babel/core": "^7.23.0",
     "@babel/preset-react": "^7.22.15",

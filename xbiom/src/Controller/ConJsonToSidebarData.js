@@ -3,6 +3,7 @@ import { mdrJsonData } from '../resources/data/jsonData';
 
 export function ConMDRJsonToSidebarData(jsonData) {
   const sidebarItems = [];
+  
   if (jsonData && jsonData.HEADER && jsonData.HEADER.I) {
     jsonData.HEADER.I.forEach((item) => {
       const sidebarItem = {
@@ -14,25 +15,30 @@ export function ConMDRJsonToSidebarData(jsonData) {
         active: item.ACTIVE,
         key: item.CID
       };
-      if (item.I) {
-        const sidebarSubItems = [];
-        item.I.map((subItem) => {
-          const sidebarItem = {
-            text: subItem.TEXT,
-            subItem: null,
-            id: subItem.CID,
-            icon: subItem.ICONCLS,
-            disable: subItem.DISABLED,
-            active: subItem.ACTIVE,
-            key: item.CID,
-            linkUrl: subItem.LINKURl || ''
-          }
-          sidebarSubItems.push(sidebarItem);
-        });
-        sidebarItem.subItems = sidebarSubItems;
-        // sidebarItem.subItems = item.I.map((subItem) => subItem.TEXT);
-      }
-      sidebarItems.push(sidebarItem);
+      // if (item.I) {
+      //   const sidebarSubItems = [];
+      //   item.I.map((subItem) => {
+      //     const sidebarItem = {
+      //       text: subItem.TEXT,
+      //       subItem: null,
+      //       id: subItem.CID,
+      //       icon: subItem.ICONCLS,
+      //       disable: subItem.DISABLED,
+      //       active: subItem.ACTIVE,
+      //       key: item.CID,
+      //       linkUrl: subItem.LINKURl || ''
+      //     }
+      //     sidebarSubItems.push(sidebarItem);
+      //   });
+      //   sidebarItem.subItems = sidebarSubItems;
+      //   // sidebarItem.subItems = item.I.map((subItem) => subItem.TEXT);
+      // }
+      // sidebarItems.push(sidebarItem);
+   
+   if(item.I){
+    sidebarItem.subItems = ConMDRJsonToSidebarData({HEADER:{I:item.I}})
+   }
+   sidebarItems.push(sidebarItem);
     });
   }
 

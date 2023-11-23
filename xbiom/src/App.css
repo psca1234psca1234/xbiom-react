@@ -7,14 +7,14 @@ body {
 /* Common Styles  */
 /* CSS for webkit-based browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-  width: 8px !important; /* Set the width of the scrollbar */
+  width: 0px !important; /* Set the width of the scrollbar */
   background-color: #ede6e6 !important; /* Set the background color of the scrollbar track */
 }
 
 /* CSS for the scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
   background-color: #83878e !important; /* Set the background color of the scrollbar thumb */
-  border-radius: 4px !important; /* Set the border radius of the thumb */
+  border-radius: 0px !important; /* Set the border radius of the thumb */
 }
 
 /* CSS for the scrollbar track when hovering over it */

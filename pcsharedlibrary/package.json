@@ -32,17 +32,19 @@
     "prettier": "^2.0.4",
     "react": "file:./mainapp/node_modules/react",
     "react-dom": "file:./mainapp/node_modules/react-dom",
+    "react-pro-sidebar": "file:./mainapp/node_modules/react-pro-sidebar",
     "react-scripts": "^3.4.1",
-    "styled-components": "file:./mainapp/node_modules/styled-components",
-    "react-pro-sidebar" : "file:./mainapp/node_modules/react-pro-sidebar"
+    "styled-components": "file:./mainapp/node_modules/styled-components"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
     "@mui/icons-material": "^5.14.12",
+    "@mui/lab": "^5.0.0-alpha.153",
     "@mui/material": "^5.14.12",
     "react-router-dom": "file:./mainapp/node_modules/react-router-dom",
+    "react-swipeable-views": "^0.14.0",
     "webix": "^10.2.0"
   }
 }

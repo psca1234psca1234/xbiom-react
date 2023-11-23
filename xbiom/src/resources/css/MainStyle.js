@@ -39,3 +39,8 @@ export const ContainerFCol = styled.div`
   display: flex;
   flex-direction: column;
 `;
+export const CTContainer = styled.div`
+  width: ${(props) => (props.width ? props.width : '100px')}; /* Set width */
+  height: ${(props) => (props.height ? props.height : '100px')}; /* Set height */
+  background-color: white; /* Set background color to red */
+`;

@@ -23,8 +23,14 @@ export const gridData = [
 ];
 
 export const columns = [
-    { id: "id", header: "ID", width: 300 },
-    { id: "name", header: "Name", width: 450 },
-    { id: "age", header: "Age", width: 500 },
+    { id: "id", header: "ID",editor: "text", width: 300 },
+    { id: "name",header: "Name",        template: function (obj) {
+            return `<a href='javascript:void(0)' onclick='openLink(${obj.id})'>${obj.name}</a>`;
+        },
+        width: 450,
+    },
+    { id: "age", header: "Age", editor: "text",width: 500 },
     { id: "email", header: "Email Id", width: 450 },
   ];
+
+//   css: { "color": "blue" },

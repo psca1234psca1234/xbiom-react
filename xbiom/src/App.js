@@ -6,8 +6,7 @@ import { ErrorPage, PcContext } from "pcsharedlibrary";
 import { mdrContextData } from "./resources/data/ContextData";
 import CDRHome from "./Components/CDR Components/CDRHome";
 import MDRHome from "./Components/MDR Components/MDRHome";
-import MyWorkSpace from "./Components/MyWorkSpace";
-import { Header } from "pcsharedlibrary";
+import { Header,HeaderNew } from "pcsharedlibrary";
 import { cdrFilePath, mdrFilePath } from "./resources/data/filePath";
 import pcLogo from "./resources/imgs/pcLogo.png";
 
@@ -25,10 +24,78 @@ const App = () => {
   return (
     <PcContext.Provider value={[pcContext, setPcContext]}>
       <BrowserRouter basename="/">
-        <Header headerConfig={headerConfig} />
+        {/* <Header headerConfig={headerConfig} /> */}
+        <HeaderNew headerConfig= {headerConfig}/>
         <Routes>
           <Route path="/" element={<MDRHome />} />
           <Route path={mdrFilePath.mdrBaseUrl} element={<MDRHome />} />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.terminologyUrl}`}
+            element={<MDRHome />}
+          />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.ctUrl}`}
+            element={<MDRHome />}
+          />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.globalCTUrl}`}
+            element={<MDRHome />}
+          />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.standardUrl}`}
+            element={<MDRHome />}
+          />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.modelCTUrl}`}
+            element={<MDRHome />}
+          />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.localCTUrl}`}
+            element={<MDRHome />}
+          />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.externalDictUrl}`}
+            element={<MDRHome />}
+          />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.systemCodelistUrl}`}
+            element={<MDRHome />}
+          />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.dataDefinationUrl}`}
+            element={<MDRHome />}
+          />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.standardUnitUrl}`}
+            element={<MDRHome />}
+          />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.UCFurl}`}
+            element={<MDRHome />}
+          />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.modelManagementUrl}`}
+            element={<MDRHome />}
+          />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.aboutUrl}`}
+            element={<MDRHome />}
+          />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.studylistingUrl}`}
+            element={<MDRHome />}
+          />
+          <Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.dataingestionUrl}`}
+            element={<MDRHome />}
+          /><Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.sdsUrl}`}
+            element={<MDRHome />}
+          /><Route
+            path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.studytrackerUrl}`}
+            element={<MDRHome />}
+          />
+
           <Route
             path={`${mdrFilePath.mdrBaseUrl}${mdrFilePath.workspaceUrl}`}
             element={<MDRHome />}
